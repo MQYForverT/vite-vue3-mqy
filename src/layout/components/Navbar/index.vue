@@ -133,11 +133,11 @@ export default defineComponent({
 			color: #5a5e66;
 			vertical-align: text-bottom;
 
-			& .hover-effect {
+			&.hover-effect {
 				cursor: pointer;
 				transition: background 0.3s;
 
-				& :hover {
+				&:hover {
 					background: rgba(0, 0, 0, 0.025);
 				}
 			}
