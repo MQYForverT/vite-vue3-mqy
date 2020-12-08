@@ -4,7 +4,7 @@
 			<div>
 				<router-link
 					v-for="tag in visitedViews"
-					:ref="tagRefs"
+					:ref="setTagRefs"
 					:key="tag.path"
 					:class="isActive(tag) ? 'active' : ''"
 					:to="{ path: tag.path, query: tag.query, fullPath: tag.fullPath }"
@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { resolve } from 'path'
-import { defineComponent, watch, ref, reactive, computed, onMounted, getCurrentInstance, nextTick } from 'vue'
+import { defineComponent, watch, ref, reactive, markRaw, computed, onMounted, onBeforeUpdate, getCurrentInstance, nextTick } from 'vue'
 import i18n from '/@/lang'
 import { useRouter } from 'vue-router'
 import { PermissionModule } from '/@/store/modules/permission'
@@ -42,21 +42,25 @@ export default defineComponent({
 	},
 	setup(props, context) {
 		const { ctx } = getCurrentInstance()
-		let tagRefs = []
+		let tagRefs = markRaw([])
 		const setTagRefs = el => {
-			itemRefs.push(el)
+			tagRefs.push(el)
 		}
 		let scrollPane = ref(null)
 		let router = useRouter()
 		let visible = ref(false)
 		let top = ref(0)
 		let left = ref(0)
-		let selectedTag = reactive({})
-		let affixTags = reactive([])
+		let selectedTag = markRaw({})
+		let affixTags = []
 
 		onMounted(() => {
 			initTags()
 			addTags()
+		})
+
+		onBeforeUpdate(() => {
+			tagRefs = []
 		})
 
 		const visitedViews = computed(() => {
@@ -68,7 +72,9 @@ export default defineComponent({
 		watch(
 			() => ctx.$router.currentRoute.value,
 			route => {
-				if (route.name === 'Login') return
+				if (route.fullPath.includes('redirect') || route.name === 'Login') {
+					return
+				}
 				addTags()
 				moveToCurrentTag()
 			}
@@ -130,12 +136,13 @@ export default defineComponent({
 			return false
 		}
 
+		// 移动到当前标记
 		function moveToCurrentTag() {
 			const tags = tagRefs // TODO: better typescript support for router-link
 			nextTick(() => {
 				for (const tag of tags) {
 					if (tag.to.path === ctx.$router.currentRoute.value.path) {
-						scrollPane.value.moveToTarget(tag)
+						;(scrollPane.value as ScrollPane).moveToTarget(tag)
 						// When query is different then update
 						if (tag.to.fullPath !== ctx.$router.currentRoute.value.fullPath) {
 							TagsViewModule.updateVisitedView(ctx.$router.currentRoute.value)
@@ -224,6 +231,8 @@ export default defineComponent({
 		}
 
 		return {
+			scrollPane,
+			setTagRefs,
 			i18n,
 			tagRefs,
 			handleScroll,

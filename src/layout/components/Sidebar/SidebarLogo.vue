@@ -1,9 +1,9 @@
 <template>
-	<div class="sidebar-logo-container" :class="{ collapse: props.collapse }">
+	<div class="sidebar-logo-container" :class="{ collapse: collapse }">
 		<transition name="sidebarLogoFade">
-			<router-link v-if="props.collapse" key="collapse" class="sidebar-logo-link" to="/"><img src="favicon.ico" class="sidebar-logo" /></router-link>
+			<router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/"><img src="/favicon.ico" class="sidebar-logo" /></router-link>
 			<router-link v-else key="expand" class="sidebar-logo-link" to="/">
-				<img src="favicon.ico" class="sidebar-logo" />
+				<img src="/favicon.ico" class="sidebar-logo" />
 				<h1 class="sidebar-title">{{ title }}</h1>
 			</router-link>
 		</transition>
@@ -22,7 +22,6 @@ export default defineComponent({
 	setup(props, context) {
 		const title = settings.title
 		return{
-			props,
 			title
 		}
 	}

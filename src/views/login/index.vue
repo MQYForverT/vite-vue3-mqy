@@ -72,10 +72,10 @@ export default defineComponent({
 			password: '123456'
 		})
 
-		let loginRules = reactive({
+		let loginRules = {
 			username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
 			password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
-		})
+		}
 
 		let passwordType = ref('password')
 		let loading = ref(false)
@@ -97,7 +97,7 @@ export default defineComponent({
 			passwordRef.value.focus()
 		}
 
-		async function handleLogin() {
+		function handleLogin() {
 			formRef.value.validate(async (valid: boolean) => {
 				if (valid) {
 					loading = true

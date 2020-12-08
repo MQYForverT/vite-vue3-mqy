@@ -3,7 +3,7 @@
 		v-model="theme"
 		:predefine="['#409EFF', '#1890ff', '#3F66F6', '#304156', '#212121', '#11a983', '#13c2c2', '#6959CD', '#f5222d']"
 		class="theme-picker"
-		popper-class="theme-picker-dropdown"
+		popper-class="theme-picker-dropdown12"
 	/>
 </template>
 
@@ -13,14 +13,14 @@ import { SettingsModule } from '/@/store/modules/settings'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 import version from 'element-plus/package.json' // element-ui version from node_modules
-const ORIGINAL_THEME = '#409EFF' // default color
+const ORIGINAL_THEME = '#3F66F6' // default color
 
 export default defineComponent({
 	name: 'ThemePicker',
 	setup(props, context) {
 		let { ctx } = getCurrentInstance()
 		let theme = ref('')
-		let chalk = ref(null) // The content of theme-chalk css
+		let chalk = ref('') // The content of theme-chalk css
 
 		function updateStyle(style: string, oldCluster: string[], newCluster: string[]) {
 			let newStyle = style

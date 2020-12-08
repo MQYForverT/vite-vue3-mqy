@@ -2,7 +2,6 @@
 	<div class="drawer-container">
 		<div>
 			<h3 class="drawer-title">{{ i18n.global.t('settings.title') }}</h3>
-
 			<div class="drawer-item">
 				<span>{{ i18n.global.t('settings.theme') }}</span>
 				<theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />

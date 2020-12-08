@@ -13,6 +13,10 @@ const sizeKey = 'mqy_size'
 export const getSize = () => Cookies.get(sizeKey)
 export const setSize = (size: String) => Cookies.set(sizeKey, size)
 
+const themeKey = 'mqy_theme'
+export const getTheme = () => Cookies.get(themeKey)
+export const setTheme = (theme: String) => Cookies.set(themeKey, theme)
+
 // User
 const tokenKey = 'mqy_access_token'
 export const getToken = () => Cookies.get(tokenKey)

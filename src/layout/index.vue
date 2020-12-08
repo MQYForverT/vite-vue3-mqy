@@ -15,7 +15,7 @@
 			<app-main />
 
 			<!--右边的设置按钮-->
-			<!-- <right-panel v-if="showSettings"><settings /></right-panel> -->
+			<right-panel v-if="showSettings"><settings /></right-panel>
 		</div>
 	</div>
 </template>
@@ -26,7 +26,7 @@ import { DeviceType, AppModule } from '/@/store/modules/app'
 import { SettingsModule } from '/@/store/modules/settings'
 import { useRouter } from 'vue-router'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
-// import RightPanel from '/@/components/RightPanel/index.vue'
+import RightPanel from '/@/components/RightPanel/index.vue'
 
 const WIDTH = 992
 
@@ -35,7 +35,7 @@ export default defineComponent({
 	components: {
 		AppMain,
 		Navbar,
-		// RightPanel,
+		RightPanel,
 		Settings,
 		Sidebar,
 		TagsView
@@ -63,9 +63,9 @@ export default defineComponent({
 
 		function resizeHandler(){
 		  if (!document.hidden) {
-		    const isMobile = isMobile()
-		    AppModule.ToggleDevice(isMobile ? DeviceType.Mobile : DeviceType.Desktop)
-		    if (isMobile) {
+		    const isMobile2 = isMobile()
+		    AppModule.ToggleDevice(isMobile2 ? DeviceType.Mobile : DeviceType.Desktop)
+		    if (isMobile2) {
 		      AppModule.CloseSideBar(true)
 		    }
 		  }

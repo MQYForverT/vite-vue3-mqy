@@ -1,7 +1,5 @@
 <template>
-	<el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll">
-		<slot/>
-	</el-scrollbar>
+	<el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="handleScroll"><slot /></el-scrollbar>
 </template>
 
 <script lang="ts">
@@ -13,11 +11,12 @@ export default defineComponent({
 	name: 'ScrollPane',
 	setup(props, context) {
 		const { ctx } = getCurrentInstance()
+		let scrollContainer = ref(null)
 
 		const scrollWrapper = computed(() => {
-			return ctx.$refs.scrollContainer.wrap as HTMLElement
+			return scrollContainer.value.wrap as HTMLElement
 		})
-		
+
 		function handleScroll(e: MouseWheelEvent) {
 			const eventDelta = (e as any).wheelDelta || -e.deltaY * 40
 			const scrollWrapper = scrollWrapper.value
@@ -29,10 +28,10 @@ export default defineComponent({
 		}
 
 		function moveToTarget(currentTag: HTMLElement) {
-			const container = ctx.$refs.scrollContainer.$el as HTMLElement
+			const container = scrollContainer.value.$el as HTMLElement
 			const containerWidth = container.offsetWidth
-			const scrollWrapper = scrollWrapper.value
-			const tagList = ctx.$parent.$refs.tag as any[]
+			const scrollWrapper2 = scrollWrapper.value
+			const tagList = ctx.$parent.tagRefs
 
 			let firstTag = null
 			let lastTag = null
@@ -44,12 +43,17 @@ export default defineComponent({
 			}
 
 			if (firstTag === currentTag) {
-				scrollWrapper.scrollLeft = 0
+				scrollWrapper2.scrollLeft = 0
 			} else if (lastTag === currentTag) {
-				scrollWrapper.scrollLeft = scrollWrapper.scrollWidth - containerWidth
+				scrollWrapper2.scrollLeft = scrollWrapper2.scrollWidth - containerWidth
 			} else {
 				// find preTag and nextTag
-				const currentIndex = tagList.findIndex(item => item === currentTag)
+				const currentIndex = tagList.findIndex(item => {
+					return item === currentTag
+				})
+				if (currentIndex === -1) {
+					return
+				}
 				const prevTag = tagList[currentIndex - 1]
 				const nextTag = tagList[currentIndex + 1]
 				// the tag's offsetLeft after of nextTag
@@ -57,10 +61,10 @@ export default defineComponent({
 				// the tag's offsetLeft before of prevTag
 				const beforePrevTagOffsetLeft = prevTag.$el.offsetLeft - tagSpacing
 
-				if (afterNextTagOffsetLeft > scrollWrapper.scrollLeft + containerWidth) {
-					scrollWrapper.scrollLeft = afterNextTagOffsetLeft - containerWidth
-				} else if (beforePrevTagOffsetLeft < scrollWrapper.scrollLeft) {
-					scrollWrapper.scrollLeft = beforePrevTagOffsetLeft
+				if (afterNextTagOffsetLeft > scrollWrapper2.scrollLeft + containerWidth) {
+					scrollWrapper2.scrollLeft = afterNextTagOffsetLeft - containerWidth
+				} else if (beforePrevTagOffsetLeft < scrollWrapper2.scrollLeft) {
+					scrollWrapper2.scrollLeft = beforePrevTagOffsetLeft
 				}
 			}
 		}
@@ -74,7 +78,9 @@ export default defineComponent({
 		})
 
 		return {
-			handleScroll
+			scrollContainer,
+			handleScroll,
+			moveToTarget
 		}
 	}
 })

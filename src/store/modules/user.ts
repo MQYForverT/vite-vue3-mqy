@@ -72,7 +72,7 @@ class User extends VuexModule implements IUserState {
   // 根据token获取用户信息
   @Action
   public async getUserInfoByToken(token:String) {
-	this.SET_ROLES(['admin'])
+	this.SET_ROLES(['editor'])
 	this.SET_NAME('mqy')
 	this.SET_AVATAR()
   }

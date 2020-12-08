@@ -1,24 +1,26 @@
 <template>
-	<div v-if="!props.item.meta || !props.item.meta.hidden" :class="[props.isCollapse ? 'simple-mode' : 'full-mode', { 'first-level': props.isFirstLevel }]">
+	<div v-if="!item.meta || !item.meta.hidden" :class="[isCollapse ? 'simple-mode' : 'full-mode', { 'first-level': isFirstLevel }]">
 		<template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">
 			<sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
-				<el-menu-item :index="resolvePath(theOnlyOneChild.path)" :class="{ 'submenu-title-noDropdown': props.isFirstLevel }">
+				<el-menu-item :index="resolvePath(theOnlyOneChild.path)" :class="{ 'submenu-title-noDropdown': isFirstLevel }">
 					<svg-icon v-if="theOnlyOneChild.meta.icon" :name="theOnlyOneChild.meta.icon" :fill="getActive(theOnlyOneChild.meta.icon)" />
-					<span v-if="theOnlyOneChild.meta.title" #title>{{ i18n.global.t('route.' + theOnlyOneChild.meta.title) }}</span>
+					<template #title v-if="theOnlyOneChild.meta.title">
+						<span>{{ i18n.global.t('route.' + theOnlyOneChild.meta.title) }}</span>
+					</template>
 				</el-menu-item>
 			</sidebar-item-link>
 		</template>
-		<el-submenu v-else :index="resolvePath(props.item.path)" popper-append-to-body>
+		<el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
 			<template #title>
-				<svg-icon v-if="props.item.meta && props.item.meta.icon" :name="props.item.meta.icon" :fill="getActive(props.item.meta.icon)"/>
-				<span v-if="props.item.meta && props.item.meta.title" #title>{{ i18n.global.t('route.' + props.item.meta.title) }}</span>
+				<svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" :fill="getActive(item.meta.icon)" />
+				<span v-if="item.meta && item.meta.title">{{ i18n.global.t('route.' + item.meta.title) }}</span>
 			</template>
-			<template v-if="props.item.children">
+			<template v-if="item.children">
 				<sidebar-item
-					v-for="child in props.item.children"
+					v-for="child in item.children"
 					:key="child.path"
 					:item="child"
-					:is-collapse="props.isCollapse"
+					:is-collapse="isCollapse"
 					:is-first-level="false"
 					:base-path="resolvePath(child.path)"
 					class="nest-menu"
@@ -95,6 +97,7 @@ export default defineComponent({
 			return { ...props.item, path: '' }
 		})
 
+		// 判断是不是外部链接
 		function resolvePath(routePath) {
 			if (isExternal(routePath)) {
 				return routePath
@@ -106,14 +109,13 @@ export default defineComponent({
 		}
 
 		function getActive(v) {
-			if(ctx.$router.currentRoute.value.meta.icon===v){
+			if (ctx.$router.currentRoute.value.meta.icon === v) {
 				return 'rgb(24, 144, 255)'
 			}
 		}
 
 		return {
 			i18n,
-			props,
 			alwaysShowRootMenu,
 			theOnlyOneChild,
 			resolvePath,
@@ -126,7 +128,6 @@ export default defineComponent({
 <style>
 .el-submenu .is-active > .el-submenu__title {
 	color: var(--subMenuActiveText) !important;
-	color: rgb(24, 144, 255);
 }
 
 .full-mode {
@@ -148,15 +149,7 @@ export default defineComponent({
 			position: relative;
 
 			& .el-tooltip {
-				background-color: red;
 				padding: 0 !important;
-			}
-		}
-
-		& .el-menu-item {
-			overflow: hidden;
-			& span {
-				visibility: hidden;
 			}
 		}
 
@@ -164,7 +157,6 @@ export default defineComponent({
 			overflow: hidden;
 
 			& > .el-submenu__title {
-				padding: 0px !important;
 
 				& .el-submenu__icon-arrow {
 					display: none;
@@ -182,11 +174,5 @@ export default defineComponent({
 <style scoped>
 .icon {
 	margin-right: 16px;
-}
-
-.simple-mode {
-	& .icon {
-		margin-left: 20px;
-	}
 }
 </style>

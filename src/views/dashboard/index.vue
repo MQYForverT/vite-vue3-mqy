@@ -23,7 +23,7 @@ export default defineComponent({
 
 		onMounted(() => {
 			if (!roles.value.includes('admin')) {
-				currentRole = 'editor-dashboard'
+				currentRole.value = 'editor-dashboard'
 			}
 		})
 

@@ -14,7 +14,6 @@ export default defineComponent({
 	},
 	setup(props, context) {
 		return {
-			props,
 			isExternal
 		}
 	}

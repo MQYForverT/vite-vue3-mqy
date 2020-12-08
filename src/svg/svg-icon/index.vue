@@ -13,6 +13,7 @@ import { VueComponent as hiddenPsw } from '/@/svg/hiddenPsw.svg'
 import { VueComponent as hamburger } from '/@/svg/hamburger.svg'
 import { VueComponent as nested } from '/@/svg/nested.svg'
 import { VueComponent as dashboard } from '/@/svg/dashboard.svg'
+import { VueComponent as size } from '/@/svg/size.svg'
 
 export default defineComponent({
 	name: 'svg-icon',
@@ -40,7 +41,8 @@ export default defineComponent({
 		hiddenPsw,
 		hamburger,
 		nested,
-		dashboard
+		dashboard,
+		size
 	}
 })
 </script>

@@ -11,67 +11,81 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
-import { addClass, removeClass } from '@/utils'
-import { SettingsModule } from '@/store/modules/settings'
+import { defineComponent, computed, ref, watch, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue'
+import { addClass, removeClass } from '/@/utils'
+import { SettingsModule } from '/@/store/modules/settings'
 
-@Component({
-	name: 'RightPanel'
+export default defineComponent({
+	name: 'RightPanel',
+	props: {
+		clickNotClose: {
+			type: Boolean,
+			default: false
+		},
+		buttonTop: {
+			type: Number,
+			default: 250
+		}
+	},
+	setup(props, context) {
+		const { ctx } = getCurrentInstance()
+		let show = ref(false)
+		let rightPanel = ref(null)
+
+		const theme = computed(() => {
+			return SettingsModule.theme
+		})
+
+		watch(show, value => {
+			if (value && !props.clickNotClose) {
+				addEventClick()
+			}
+			if (value) {
+				addClass(document.body, 'showRightPanel')
+			} else {
+				removeClass(document.body, 'showRightPanel')
+			}
+		})
+
+		onMounted(() => {
+			insertToBody()
+		})
+
+		onBeforeUnmount(() => {
+			const elx = rightPanel.value as Element
+			elx.remove()
+		})
+
+		function addEventClick() {
+			window.addEventListener('click', closeSidebar)
+		}
+
+		function closeSidebar(ev: MouseEvent) {
+			const parent = (ev.target as HTMLElement).closest('.rightPanel')
+			if (!parent) {
+				show.value = false
+				window.removeEventListener('click', closeSidebar)
+			}
+		}
+
+		function insertToBody() {
+			const elx = rightPanel.value as Element
+			const body = document.querySelector('body')
+			if (body) {
+				body.insertBefore(elx, body.firstChild)
+			}
+		}
+
+		return {
+			rightPanel,
+			show,
+			theme
+		}
+	}
 })
-export default class extends Vue {
-	@Prop({ default: false }) private clickNotClose!: boolean
-	@Prop({ default: 250 }) private buttonTop!: number
-
-	private show = false
-
-	get theme() {
-		return SettingsModule.theme
-	}
-
-	@Watch('show')
-	private onShowChange(value: boolean) {
-		if (value && !this.clickNotClose) {
-			this.addEventClick()
-		}
-		if (value) {
-			addClass(document.body, 'showRightPanel')
-		} else {
-			removeClass(document.body, 'showRightPanel')
-		}
-	}
-
-	mounted() {
-		this.insertToBody()
-	}
-
-	beforeDestroy() {
-		const elx = this.$refs.rightPanel as Element
-		elx.remove()
-	}
-
-	private addEventClick() {
-		window.addEventListener('click', this.closeSidebar)
-	}
-
-	private closeSidebar(ev: MouseEvent) {
-		const parent = (ev.target as HTMLElement).closest('.rightPanel')
-		if (!parent) {
-			this.show = false
-			window.removeEventListener('click', this.closeSidebar)
-		}
-	}
-
-	private insertToBody() {
-		const elx = this.$refs.rightPanel as Element
-		const body = document.querySelector('body')
-		if (body) {
-			body.insertBefore(elx, body.firstChild)
-		}
-	}
-}
 </script>
 
-<style lang="scss">
+<style>
 .showRightPanel {
 	overflow: hidden;
 	position: relative;
@@ -79,7 +93,7 @@ export default class extends Vue {
 }
 </style>
 
-<style lang="scss" scoped>
+<style scoped>
 .rightPanel-background {
 	position: fixed;
 	top: 0;
@@ -107,14 +121,14 @@ export default class extends Vue {
 .show {
 	transition: all 0.3s cubic-bezier(0.7, 0.3, 0.1, 1);
 
-	.rightPanel-background {
+	& .rightPanel-background {
 		z-index: 20000;
 		opacity: 1;
 		width: 100%;
 		height: 100%;
 	}
 
-	.rightPanel {
+	& .rightPanel {
 		transform: translate(0);
 	}
 }
@@ -133,7 +147,7 @@ export default class extends Vue {
 	color: #fff;
 	line-height: 48px;
 
-	i {
+	& i {
 		font-size: 24px;
 		line-height: 48px;
 	}

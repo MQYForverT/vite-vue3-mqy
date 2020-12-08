@@ -1,5 +1,5 @@
 <template>
-	<div :style="{ zIndex: props.zIndex, height: props.height, width: props.width }" class="pan-item">
+	<div :style="{ zIndex: zIndex, height: height, width: width }" class="pan-item">
 		<div class="pan-info">
 			<div class="pan-info-roles-container"><slot /></div>
 		</div>
@@ -25,11 +25,6 @@ export default defineComponent({
 		zIndex: {
 			type: Number,
 			default: 1
-		}
-	},
-	setup(props, context) {
-		return {
-			props
 		}
 	}
 })
@@ -63,7 +58,7 @@ export default defineComponent({
 	overflow: hidden;
 	box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.05);
 
-	&.pan-info-roles-container {
+	& .pan-info-roles-container {
 		padding: 20px;
 		text-align: center;
 	}

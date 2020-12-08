@@ -10,4 +10,5 @@ const app = createApp(App)
 app.use(router)
 app.use(store)
 app.use(overall)// app.use():全局注册插件
-app.mount('#app')
+router.isReady().then(() => app.mount('#app'))//如果使用transition，则可能需要在安装应用程序之前等待路由器准备就绪：
+

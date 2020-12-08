@@ -1,5 +1,5 @@
 <template>
-	<section class="app-main">
+	<section class="app-main">		
 		<router-view >
 			<template #defaul="{ Component, route }">
 				<transition name="fade-transform" mode="out-in">
@@ -24,7 +24,7 @@ export default defineComponent({
 	name: 'AppMain',
 	setup(props, context) {
 		let { ctx } = getCurrentInstance()
-		const footerTitle = ref(defaultSettings.footerTitle)
+		const footerTitle = defaultSettings.footerTitle
 
 		const cachedViews = computed(() => TagsViewModule.cachedViews)
 

@@ -1,5 +1,5 @@
 <template>
-	<div :class="[{ 'is-active': props.isActive }]" @click="toggleClick">
+	<div :class="[{ 'is-active': isActive }]" @click="toggleClick">
 		<svg-icon name="hamburger" width="20" height="20" />
 	</div>
 </template>
@@ -21,7 +21,6 @@ export default defineComponent({
 		}
 
 		return {
-			props,
 			toggleClick
 		}
 	}

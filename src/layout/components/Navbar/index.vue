@@ -6,7 +6,9 @@
 			<template v-if="device !== 'mobile'">
 				<!-- <header-search class="right-menu-item" /> -->
 				<!-- <screenfull class="right-menu-item hover-effect" /> -->
-				<!-- <el-tooltip :content="i18n.global.t('navbar.size')" effect="dark" placement="bottom"><size-select class="right-menu-item hover-effect" /></el-tooltip> -->
+				<el-tooltip :content="1" effect="dark" placement="bottom">
+					<div class="right-menu-item hover-effect"><size-select /></div>
+				</el-tooltip>
 				<div class="right-menu-item hover-effect"><lang-select /></div>
 			</template>
 			<el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
@@ -40,17 +42,17 @@ import Hamburger from '/@/components/Hamburger/index.vue'
 import LangSelect from '/@/components/LangSelect/index.vue'
 // import HeaderSearch from '/@/components/HeaderSearch/index.vue'
 // import Screenfull from '/@/components/Screenfull/index.vue'
-// import SizeSelect from '/@/components/SizeSelect/index.vue'
+import SizeSelect from '/@/components/SizeSelect/index.vue'
 
 export default defineComponent({
 	name: 'Navbar',
 	components: {
 		Breadcrumb,
 		Hamburger,
-		LangSelect
+		LangSelect,
 		// HeaderSearch,
 		// Screenfull,
-		// SizeSelect
+		SizeSelect
 	},
 	setup(props, context) {
 		let { ctx } = getCurrentInstance()

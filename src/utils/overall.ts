@@ -5,7 +5,6 @@ import lodash from 'lodash'
 import Base64 from './base64'
 import '/@/utils/permission'
 import '/@/utils/rem'
-import '/@/styles/element-variables.css'
 import '/@/styles/index.css'
 
 import * as directives from '/@/directives'
