@@ -39,3 +39,4 @@
 2.npm install js-cookie
 3.npm install nprogress，并在相关ts文件permission.ts中引用
 4.npm install clipboard，剪切板，并编写相关ts文件clipboard.ts
+5.npm install screenfull，实现f11的功能，页面放大与缩小

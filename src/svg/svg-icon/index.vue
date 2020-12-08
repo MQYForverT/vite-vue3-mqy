@@ -14,6 +14,8 @@ import { VueComponent as hamburger } from '/@/svg/hamburger.svg'
 import { VueComponent as nested } from '/@/svg/nested.svg'
 import { VueComponent as dashboard } from '/@/svg/dashboard.svg'
 import { VueComponent as size } from '/@/svg/size.svg'
+import { VueComponent as fullscreen } from '/@/svg/fullscreen.svg'
+import { VueComponent as exitFullscreen } from '/@/svg/exit-fullscreen.svg'
 
 export default defineComponent({
 	name: 'svg-icon',
@@ -42,7 +44,9 @@ export default defineComponent({
 		hamburger,
 		nested,
 		dashboard,
-		size
+		size,
+		fullscreen,
+		exitFullscreen
 	}
 })
 </script>

@@ -71,7 +71,6 @@ export default defineComponent({
 		  }
 		}
 
-
 		const classObj = computed(() => {
 			return {
 				hideSidebar: !sidebar.value.opened,
@@ -184,29 +183,29 @@ export default defineComponent({
 
 /* for mobile response 适配移动端 */
 .mobile {
-	& .main-container {
+	&.main-container {
 		margin-left: 0px;
 	}
 
-	& .sidebar-container {
+	&.sidebar-container {
 		transition: transform 0.28s;
 		width: var(--sideBarWidth) !important;
 	}
 
-	& .openSidebar {
+	&.openSidebar {
 		position: fixed;
 		top: 0;
 	}
 
-	& .hideSidebar {
-		.sidebar-container {
+	&.hideSidebar {
+		&.sidebar-container {
 			pointer-events: none;
 			transition-duration: 0.3s;
 			transform: translate3d(var(--sideBarWidth), 0, 0);
 		}
 	}
 
-	& .fixed-header {
+	&.fixed-header {
 		width: 100%;
 	}
 }

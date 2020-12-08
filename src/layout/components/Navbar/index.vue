@@ -5,7 +5,7 @@
 		<div class="right-menu">
 			<template v-if="device !== 'mobile'">
 				<!-- <header-search class="right-menu-item" /> -->
-				<!-- <screenfull class="right-menu-item hover-effect" /> -->
+				<screenfull class="right-menu-item hover-effect" />
 				<el-tooltip :content="i18n.global.t('navbar.size')" effect="dark" placement="bottom">
 					<div class="right-menu-item hover-effect"><size-select /></div>
 				</el-tooltip>
@@ -41,7 +41,7 @@ import Breadcrumb from '/@/components/Breadcrumb/index.vue'
 import Hamburger from '/@/components/Hamburger/index.vue'
 import LangSelect from '/@/components/LangSelect/index.vue'
 // import HeaderSearch from '/@/components/HeaderSearch/index.vue'
-// import Screenfull from '/@/components/Screenfull/index.vue'
+import Screenfull from '/@/components/Screenfull/index.vue'
 import SizeSelect from '/@/components/SizeSelect/index.vue'
 
 export default defineComponent({
@@ -51,7 +51,7 @@ export default defineComponent({
 		Hamburger,
 		LangSelect,
 		// HeaderSearch,
-		// Screenfull,
+		Screenfull,
 		SizeSelect
 	},
 	setup(props, context) {
