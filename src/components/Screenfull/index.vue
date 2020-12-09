@@ -1,5 +1,5 @@
 <template>
-	<div id="screenfull"><svg-icon :name="isFullscreen ? 'exit-fullscreen' : 'fullscreen'" @click="click" /></div>
+	<div id="screenfull"><svg-icon :name="isFullscreen ? 'exitFullscreen' : 'fullscreen'" @click="click" /></div>
 </template>
 
 <script lang="ts">
@@ -13,6 +13,7 @@ export default defineComponent({
 	setup(props, context) {
 		let { ctx } = getCurrentInstance()
 		let isFullscreen = ref(false)
+		
 		onMounted(() => {
 			if (sf.isEnabled) {
 				sf.on('change', change)

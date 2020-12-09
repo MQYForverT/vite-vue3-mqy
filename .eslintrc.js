@@ -6,11 +6,10 @@ module.exports = {
 	},
 	extends: [
 		'plugin:vue/vue3-recommended',
-		'plugin:@typescript-eslint/recommended',
-		'prettier/@typescript-eslint',
-		'plugin:prettier/recommended',
+		'@vue/standard',
+		'@vue/typescript/recommended',
+		'@vue/typescript'
 	],
-	parser: 'vue-eslint-parser',
 	// JavaScript 语言选项
 	parserOptions: {
 		ecmaVersion: 2020,

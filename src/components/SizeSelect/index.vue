@@ -48,7 +48,8 @@ export default defineComponent({
 
 		return{
 			handleSetSize,
-			sizeOptions
+			sizeOptions,
+			size
 		}
 	}
 })

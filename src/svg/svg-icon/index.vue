@@ -16,6 +16,7 @@ import { VueComponent as dashboard } from '/@/svg/dashboard.svg'
 import { VueComponent as size } from '/@/svg/size.svg'
 import { VueComponent as fullscreen } from '/@/svg/fullscreen.svg'
 import { VueComponent as exitFullscreen } from '/@/svg/exit-fullscreen.svg'
+import { VueComponent as search } from '/@/svg/search.svg'
 
 export default defineComponent({
 	name: 'svg-icon',
@@ -46,7 +47,8 @@ export default defineComponent({
 		dashboard,
 		size,
 		fullscreen,
-		exitFullscreen
+		exitFullscreen,
+		search
 	}
 })
 </script>

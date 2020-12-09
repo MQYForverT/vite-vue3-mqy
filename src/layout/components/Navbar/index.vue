@@ -4,7 +4,7 @@
 		<breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
 		<div class="right-menu">
 			<template v-if="device !== 'mobile'">
-				<!-- <header-search class="right-menu-item" /> -->
+				<HeaderSearch class="right-menu-item" />
 				<screenfull class="right-menu-item hover-effect" />
 				<el-tooltip :content="i18n.global.t('navbar.size')" effect="dark" placement="bottom">
 					<div class="right-menu-item hover-effect"><size-select /></div>
@@ -40,7 +40,7 @@ import { UserModule } from '/@/store/modules/user'
 import Breadcrumb from '/@/components/Breadcrumb/index.vue'
 import Hamburger from '/@/components/Hamburger/index.vue'
 import LangSelect from '/@/components/LangSelect/index.vue'
-// import HeaderSearch from '/@/components/HeaderSearch/index.vue'
+import HeaderSearch from '/@/components/HeaderSearch/index.vue'
 import Screenfull from '/@/components/Screenfull/index.vue'
 import SizeSelect from '/@/components/SizeSelect/index.vue'
 
@@ -50,7 +50,7 @@ export default defineComponent({
 		Breadcrumb,
 		Hamburger,
 		LangSelect,
-		// HeaderSearch,
+		HeaderSearch,
 		Screenfull,
 		SizeSelect
 	},
