@@ -1,7 +1,7 @@
 ## 依赖(npm)
 ###一、Vue3全家桶:[vite vue3 vuex4 vue-router ts]
 ```
-1.npm i -g create-vite-app（全局安装create-vite-app，create vite-app '项目名'，安装的vue项目默认vue版本就是vue3）  
+1.npm i -g create-vite-app（全局安装create-vite-app，create-vite-app '项目名'，安装的vue项目默认vue版本就是vue3）  
 2.npm i vuex@next（使用与 vuex3 相同的 API。）
 3.vuex-module-decorators（vuex装饰器）
 4.npm i vue-router@next
