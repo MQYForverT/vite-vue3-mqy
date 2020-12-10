@@ -1,5 +1,5 @@
 <template>
-	<div id="header-search" :class="{ show: show }" class="header-search">
+	<div :class="{ show: show }" class="header-search">
 		<svg-icon class="search-icon" name="search" @click.stop="click" />
 		<el-select
 			ref="headerSearchSelect"
@@ -33,8 +33,8 @@ export default defineComponent({
 		let router = useRouter()
 		let search = ref('')
 		let show = ref(false)
-		let options = reactive([])
-		let searchPool = reactive([])
+		let options = ref([])
+		let searchPool = ref([])
 		let fuse = null
 		let headerSearchSelect = ref(null)
 
@@ -43,19 +43,12 @@ export default defineComponent({
 		const lang = computed(() => AppModule.language)
 
 		watch(lang, () => {
-			searchPool = generateRoutes(routes)
+			searchPool.value = generateRoutes(routes.value)
 		})
 
 		watch(routes, () => {
-			searchPool = generateRoutes(routes)
+			searchPool.value = generateRoutes(routes.value)
 		})
-
-		watch(
-			() => searchPool,
-			value => {
-				initFuse(value)
-			}
-		)
 
 		watch(show, value => {
 			if (value) {
@@ -65,8 +58,12 @@ export default defineComponent({
 			}
 		})
 
+		watch(searchPool, value => {
+			initFuse(value)
+		})
+
 		onMounted(() => {
-			searchPool = generateRoutes(routes)
+			searchPool.value = generateRoutes(routes.value)
 		})
 
 		function click() {
@@ -78,14 +75,14 @@ export default defineComponent({
 
 		function close() {
 			headerSearchSelect.value && (headerSearchSelect.value as HTMLElement).blur()
-			options = []
+			options.value = []
 			show.value = false
 		}
 
 		function change(route: RouteRecordRaw) {
 			router.push(route.path)
 			search.value = ''
-			options = []
+			options.value = []
 			nextTick(() => {
 				show.value = false
 			})
@@ -128,9 +125,10 @@ export default defineComponent({
 				}
 				if (router.meta && router.meta.title) {
 					// 生成国际化标题
-					const i18ntitle = i18n.t(`route.${router.meta.title}`).toString()
+					const i18ntitle = i18n.global.t(`route.${router.meta.title}`).toString()
 					// data.meta.title = [...data.meta.title, i18ntitle];
 					data.title = [...data.meta.title, i18ntitle]
+
 					if (router.redirect !== 'noRedirect') {
 						// 只推带标题的路由
 						// 特殊情况：需要排除没有重定向的父路由器
@@ -151,21 +149,21 @@ export default defineComponent({
 		function querySearch(query: string) {
 			if (query !== '') {
 				if (fuse) {
-					options = fuse.search(query).map(result => result.item)
+					options.value = fuse.search(query).map(result => result.item)
 				}
 			} else {
-				options = []
+				options.value = []
 			}
 		}
 
 		return {
 			headerSearchSelect,
+			options,
 			show,
 			click,
 			search,
 			querySearch,
-			change,
-			options
+			change
 		}
 	}
 })

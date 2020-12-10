@@ -3,7 +3,7 @@
 		v-model="theme"
 		:predefine="['#409EFF', '#1890ff', '#3F66F6', '#304156', '#212121', '#11a983', '#13c2c2', '#6959CD', '#f5222d']"
 		class="theme-picker"
-		popper-class="theme-picker-dropdown12"
+		popper-class="theme-picker-dropdown"
 	/>
 </template>
 
@@ -145,7 +145,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped="scoped">
+<style>
 .theme-message,
 .theme-picker-dropdown {
 	z-index: 99999 !important;
