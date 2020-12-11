@@ -2,9 +2,7 @@
 	<div ref="rightPanel" :class="{ show: show }" class="rightPanel-container">
 		<div class="rightPanel-background" />
 		<div class="rightPanel">
-			<div class="handle-button" :style="{ top: buttonTop + 'px', 'background-color': theme }" @click="show = !show">
-				<i :class="show ? 'el-icon-close' : 'el-icon-setting'" />
-			</div>
+			<div class="handle-button" :style="{ top: buttonTop + 'px' }" @click="show = !show"><i :class="show ? 'el-icon-close' : 'el-icon-setting'" /></div>
 			<div class="rightPanel-items"><slot /></div>
 		</div>
 	</div>
@@ -13,7 +11,6 @@
 <script lang="ts">
 import { defineComponent, computed, ref, watch, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue'
 import { addClass, removeClass } from '/@/utils'
-import { SettingsModule } from '/@/store/modules/settings'
 
 export default defineComponent({
 	name: 'RightPanel',
@@ -31,10 +28,6 @@ export default defineComponent({
 		const { ctx } = getCurrentInstance()
 		let show = ref(false)
 		let rightPanel = ref(null)
-
-		const theme = computed(() => {
-			return SettingsModule.theme
-		})
 
 		watch(show, value => {
 			if (value && !props.clickNotClose) {
@@ -78,8 +71,7 @@ export default defineComponent({
 
 		return {
 			rightPanel,
-			show,
-			theme
+			show
 		}
 	}
 })
@@ -146,6 +138,7 @@ export default defineComponent({
 	pointer-events: auto;
 	color: #fff;
 	line-height: 48px;
+	background-color: #3f66f6;
 
 	& i {
 		font-size: 24px;

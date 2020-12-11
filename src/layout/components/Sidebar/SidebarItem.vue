@@ -110,7 +110,7 @@ export default defineComponent({
 
 		function getActive(v) {
 			if (ctx.$router.currentRoute.value.meta.icon === v) {
-				return 'rgb(24, 144, 255)'
+				return '#3F66F6';
 			}
 		}
 

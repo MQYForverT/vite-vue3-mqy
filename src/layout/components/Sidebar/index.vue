@@ -7,7 +7,7 @@
 				:collapse="isCollapse"
 				:background-color="'#304156'"
 				:text-color="'#bfcbd9'"
-				:active-text-color="menuActiveTextColor"
+				:active-text-color="'#3F66F6'"
 				:unique-opened="true"
 				:collapse-transition="false"
 				mode="vertical"
@@ -41,14 +41,6 @@ export default defineComponent({
 
 		const showLogo = computed(() => SettingsModule.showSidebarLogo)
 
-		const menuActiveTextColor = computed(() => {
-			if (SettingsModule.sidebarTextTheme) {
-				return SettingsModule.theme
-			} else {
-				return '#409EFF'
-			}
-		})
-
 		const activeMenu = computed(() => {
 			const route = ctx.$router.currentRoute.value
 			const { meta, path } = route
@@ -65,7 +57,6 @@ export default defineComponent({
 			showLogo,
 			isCollapse,
 			activeMenu,
-			menuActiveTextColor,
 			routes
 		}
 	}

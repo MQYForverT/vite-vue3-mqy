@@ -2,10 +2,6 @@
 	<div class="drawer-container">
 		<div>
 			<h3 class="drawer-title">{{ i18n.global.t('settings.title') }}</h3>
-			<div class="drawer-item">
-				<span>{{ i18n.global.t('settings.theme') }}</span>
-				<theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange" />
-			</div>
 
 			<div class="drawer-item">
 				<span>{{ i18n.global.t('settings.showTagsView') }}</span>
@@ -34,13 +30,9 @@
 import { defineComponent, computed } from 'vue'
 import i18n from '/@/lang'
 import { SettingsModule } from '/@/store/modules/settings'
-import ThemePicker from '/@/components/ThemePicker/index.vue'
 
 export default defineComponent({
 	name: 'Settings',
-	components: {
-		ThemePicker
-	},
 	setup(props, context) {
 		const fixedHeader = computed({
 			get: () => SettingsModule.fixedHeader,
@@ -62,16 +54,11 @@ export default defineComponent({
 			set: value => SettingsModule.ChangeSetting({ key: 'sidebarTextTheme', value })
 		})
 
-		function themeChange(value: string){
-			SettingsModule.ChangeSetting({ key: 'theme', value })
-		}
-
 		return {
 			fixedHeader,
 			showTagsView,
 			showSidebarLogo,
 			sidebarTextTheme,
-			themeChange,
 			i18n
 		}
 	}
