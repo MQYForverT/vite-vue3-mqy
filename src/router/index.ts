@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 /* Layout */
-import Layout from '/@/layout/index.vue'
+import Layout from '@/layout/index.vue'
 
 /* Router modules */
 // import chartsRouter from './modules/charts'
@@ -17,7 +17,7 @@ export const constantRoutes = [
 			{	
 				name:'RedirectAll',
 				path: '/redirect/:path(.*)*',
-				component: () => import('/@/views/redirect/index.vue')
+				component: () => import('@/views/redirect/index.vue')
 			}
 		]
 	},
@@ -29,7 +29,7 @@ export const constantRoutes = [
 		children: [
 			{
 				path: 'dashboard',
-				component: () => import('/@/views/dashboard/index.vue'),
+				component: () => import('@/views/dashboard/index.vue'),
 				name: 'Dashboard',
 				meta: {
 					title: 'dashboard',
@@ -42,7 +42,7 @@ export const constantRoutes = [
 	{	
 		name: 'Login',
 		path: '/login',
-		component: () => import('/@/views/login/index.vue'),
+		component: () => import('@/views/login/index.vue'),
 		meta: { hidden: true }
 	}
 ]
@@ -59,7 +59,7 @@ const initRouter = () =>
 	createRouter({
 		history: createWebHistory(),
 		routes: constantRoutes,
-		strict: true,
+		// strict: true,
 		scrollBehavior: (to, from, savedPosition) => {
 			if (savedPosition) {
 				return savedPosition

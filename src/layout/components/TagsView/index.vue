@@ -29,10 +29,10 @@
 <script lang="ts">
 import { resolve } from 'path'
 import { defineComponent, watch, ref, reactive, markRaw, computed, onMounted, onBeforeUpdate, getCurrentInstance, nextTick } from 'vue'
-import i18n from '/@/lang'
+import i18n from '@/lang'
 import { useRouter } from 'vue-router'
-import { PermissionModule } from '/@/store/modules/permission'
-import { TagsViewModule } from '/@/store/modules/tags-view'
+import { PermissionModule } from '@/store/modules/permission'
+import { TagsViewModule } from '@/store/modules/tags-view'
 import ScrollPane from './ScrollPane.vue'
 
 export default defineComponent({

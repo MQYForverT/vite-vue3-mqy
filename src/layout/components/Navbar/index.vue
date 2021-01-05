@@ -33,16 +33,16 @@
 
 <script lang="ts">
 import { defineComponent, computed, getCurrentInstance } from 'vue'
-import i18n from '/@/lang'
+import i18n from '@/lang'
 import { useRouter } from 'vue-router'
-import { AppModule } from '/@/store/modules/app'
-import { UserModule } from '/@/store/modules/user'
-import Breadcrumb from '/@/components/Breadcrumb/index.vue'
-import Hamburger from '/@/components/Hamburger/index.vue'
-import LangSelect from '/@/components/LangSelect/index.vue'
-import HeaderSearch from '/@/components/HeaderSearch/index.vue'
-import Screenfull from '/@/components/Screenfull/index.vue'
-import SizeSelect from '/@/components/SizeSelect/index.vue'
+import { AppModule } from '@/store/modules/app'
+import { UserModule } from '@/store/modules/user'
+import Breadcrumb from '@/components/Breadcrumb/index.vue'
+import Hamburger from '@/components/Hamburger/index.vue'
+import LangSelect from '@/components/LangSelect/index.vue'
+import HeaderSearch from '@/components/HeaderSearch/index.vue'
+import Screenfull from '@/components/Screenfull/index.vue'
+import SizeSelect from '@/components/SizeSelect/index.vue'
 
 export default defineComponent({
 	name: 'Navbar',

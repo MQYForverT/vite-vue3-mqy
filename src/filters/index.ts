@@ -1,5 +1,5 @@
 // 时间过滤器
-export { parseTime } from '/@/utils'
+export { parseTime } from '@/utils'
 
 // 字典过滤
 export const statusFilter = (str: number | string, strList: object[], option: { [key: string]: any } = { id: 'id', name: 'name' }) => {

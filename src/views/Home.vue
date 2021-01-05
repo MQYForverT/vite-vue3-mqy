@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import { defineComponent, ref,getCurrentInstance } from 'vue'
-import { VueComponent as warning } from '/@/svg/warning.svg'
-import * as filters from '/@/filters'
+import { VueComponent as warning } from '@/svg/warning.svg'
+import * as filters from '@/filters'
 
 export default defineComponent({
 	name: 'Home',

@@ -1,7 +1,7 @@
 import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
 import { RouteRecordRaw } from 'vue-router'
-import { asyncRoutes, constantRoutes } from '/@/router'
-import store from '/@/store'
+import { asyncRoutes, constantRoutes } from '@/router'
+import store from '@/store'
 
 const hasPermission = (roles: string[], route: RouteRecordRaw) => {
   if (route.meta && route.meta.roles) {

@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { defineComponent, computed, ref, watch, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue'
-import { addClass, removeClass } from '/@/utils'
+import { addClass, removeClass } from '@/utils'
 
 export default defineComponent({
 	name: 'RightPanel',

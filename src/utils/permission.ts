@@ -1,12 +1,12 @@
-import router from '/@/router'
+import router from '@/router'
 import NProgress from 'nprogress'
-import { UserModule } from '/@/store/modules/user'
-import { PermissionModule } from '/@/store/modules/permission'
+import { UserModule } from '@/store/modules/user'
+import { PermissionModule } from '@/store/modules/permission'
 import 'nprogress/nprogress.css'
-import i18n from '/@/lang'
-import settings from '/@/settings'
+import i18n from '@/lang'
+import settings from '@/settings'
 import { ElMessage as Message } from 'element-plus'
-import Layout from '/@/layout/index.vue'
+import Layout from '@/layout/index.vue'
 
 NProgress.configure({ showSpinner: false })
 

@@ -1,4 +1,4 @@
-import Layout from '/@/layout/index.vue'
+import Layout from '@/layout/index.vue'
 
 const chartsRouter = {
   path: '/charts',
@@ -12,7 +12,7 @@ const chartsRouter = {
   children: [
     {
       path: 'bar-chart',
-      component: () => import('/@/views/charts/bar-chart.vue'),
+      component: () => import('@/views/charts/bar-chart.vue'),
       name: 'BarChartDemo',
       meta: {
         title: 'barChart',
@@ -21,7 +21,7 @@ const chartsRouter = {
     },
     {
       path: 'line-chart',
-      component: () => import('/@/views/charts/line-chart.vue'),
+      component: () => import('@/views/charts/line-chart.vue'),
       name: 'LineChartDemo',
       meta: {
         title: 'lineChart',
@@ -30,7 +30,7 @@ const chartsRouter = {
     },
     {
       path: 'mixed-chart',
-      component: () => import('/@/views/charts/mixed-chart.vue'),
+      component: () => import('@/views/charts/mixed-chart.vue'),
       name: 'MixedChartDemo',
       meta: {
         title: 'mixedChart',

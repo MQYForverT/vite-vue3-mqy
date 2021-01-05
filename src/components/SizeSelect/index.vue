@@ -12,8 +12,8 @@
 <script lang="ts">
 import { defineComponent, ref,markRaw,  computed, getCurrentInstance,nextTick } from 'vue'
 import { useRouter } from 'vue-router'
-import { AppModule } from '/@/store/modules/app'
-import { TagsViewModule } from '/@/store/modules/tags-view'
+import { AppModule } from '@/store/modules/app'
+import { TagsViewModule } from '@/store/modules/tags-view'
 
 export default defineComponent({
 	name: 'SizeSelect',

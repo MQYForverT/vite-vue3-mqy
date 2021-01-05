@@ -22,11 +22,11 @@
 
 <script lang="ts">
 import { defineComponent, onMounted,onBeforeMount,onBeforeUnmount, computed, watch, getCurrentInstance } from 'vue'
-import { DeviceType, AppModule } from '/@/store/modules/app'
-import { SettingsModule } from '/@/store/modules/settings'
+import { DeviceType, AppModule } from '@/store/modules/app'
+import { SettingsModule } from '@/store/modules/settings'
 import { useRouter } from 'vue-router'
 import { AppMain, Navbar, Settings, Sidebar, TagsView } from './components'
-import RightPanel from '/@/components/RightPanel/index.vue'
+import RightPanel from '@/components/RightPanel/index.vue'
 
 const WIDTH = 992
 

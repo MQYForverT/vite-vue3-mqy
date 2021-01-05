@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
-import router from '/@/router'
-import store from '/@/store'
+import router from '@/router'
+import store from '@/store'
 import App from './App.vue'
 
 // 注册全局插件/组件
-import overall from '/@/utils/overall'
+import overall from '@/utils/overall'
 
 const app = createApp(App)
 app.use(router)

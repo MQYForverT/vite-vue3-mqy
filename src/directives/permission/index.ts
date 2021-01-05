@@ -1,5 +1,5 @@
 import { ObjectDirective } from 'vue'
-import { UserModule } from '/@/store/modules/user'
+import { UserModule } from '@/store/modules/user'
 
 export const permission: ObjectDirective = {
   mounted(el, binding) {

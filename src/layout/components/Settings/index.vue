@@ -28,8 +28,8 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
-import i18n from '/@/lang'
-import { SettingsModule } from '/@/store/modules/settings'
+import i18n from '@/lang'
+import { SettingsModule } from '@/store/modules/settings'
 
 export default defineComponent({
 	name: 'Settings',

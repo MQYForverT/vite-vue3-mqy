@@ -1,21 +1,21 @@
 // 在这里全局注册插件
 import { ObjectDirective } from 'vue'
-import { AppModule } from '/@/store/modules/app'
+import { AppModule } from '@/store/modules/app'
 import lodash from 'lodash'
 import Base64 from './base64'
-import '/@/utils/permission'
-import '/@/utils/rem'
-import '/@/styles/index.css'
+import '@/utils/permission'
+import '@/utils/rem'
+import '@/styles/index.css'
 
-import * as directives from '/@/directives'
+import * as directives from '@/directives'
 
 import ElementPlus from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
-import i18n from '/@/lang'
+import i18n from '@/lang'
 
 // import DialogClustom from '@/components/DialogClustom/index.vue'
-import MainBody from '/@/components/MainBody/index.vue'
-import SvgIcon from '/@/svg/svg-icon/index.vue'
+import MainBody from '@/components/MainBody/index.vue'
+import SvgIcon from '@/svg/svg-icon/index.vue'
 
 export default {
 	install(app) {

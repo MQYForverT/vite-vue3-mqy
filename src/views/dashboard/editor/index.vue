@@ -16,8 +16,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from 'vue'
-import { UserModule } from '/@/store/modules/user'
-import PanThumb from '/@/components/PanThumb/index.vue'
+import { UserModule } from '@/store/modules/user'
+import PanThumb from '@/components/PanThumb/index.vue'
 
 export default defineComponent({
 	name: 'editor',

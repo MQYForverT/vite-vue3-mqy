@@ -14,8 +14,8 @@
 
 <script lang="ts">
 import { defineComponent, computed, getCurrentInstance } from 'vue'
-import { AppModule } from '/@/store/modules/app'
-import i18n from '/@/lang'
+import { AppModule } from '@/store/modules/app'
+import i18n from '@/lang'
 
 export default defineComponent({
 	name: 'LangSelect',

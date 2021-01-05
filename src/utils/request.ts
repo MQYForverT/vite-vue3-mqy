@@ -1,8 +1,8 @@
 import axios from 'axios'
 import qs from 'qs'
 import { ElMessage as Message, ElMessageBox as MessageBox } from 'element-plus'
-import { UserModule } from '/@/store/modules/user'
-import { convertRes2Blob } from '/@/utils/dowloadFile'
+import { UserModule } from '@/store/modules/user'
+import { convertRes2Blob } from '@/utils/dowloadFile'
 
 const service = axios.create({
 	baseURL: `${import.meta.env.VITE_BASE_API}/${import.meta.env.VITE_PROJECT_NAME}`, // url = base url + request url

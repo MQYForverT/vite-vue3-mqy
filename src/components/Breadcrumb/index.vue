@@ -12,7 +12,7 @@
 <script lang="ts">
 import { compile } from 'path-to-regexp'
 import { defineComponent, reactive, watch, getCurrentInstance } from 'vue'
-import i18n from '/@/lang'
+import i18n from '@/lang'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({

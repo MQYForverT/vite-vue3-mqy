@@ -1,6 +1,6 @@
 import { VuexModule, Module, Mutation, Action, getModule } from 'vuex-module-decorators'
 import { RouteLocationNormalized } from 'vue-router'
-import store from '/@/store'
+import store from '@/store'
 
 export interface ITagView extends Partial<RouteLocationNormalized> {
   title?: string

@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
 
-import { getLanguage } from '/@/utils/cookies'
+import { getLanguage } from '@/utils/cookies'
 
 // element-plus built-in lang
 // import elementEnLocale from 'element-plus'

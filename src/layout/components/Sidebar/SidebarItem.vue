@@ -33,8 +33,8 @@
 <script lang="ts">
 import { resolve } from 'path'
 import { defineComponent, computed, getCurrentInstance } from 'vue'
-import i18n from '/@/lang'
-import { isExternal } from '/@/utils/validate'
+import i18n from '@/lang'
+import { isExternal } from '@/utils/validate'
 import SidebarItemLink from './SidebarItemLink.vue'
 
 export default defineComponent({

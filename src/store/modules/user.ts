@@ -1,6 +1,6 @@
 import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators'
-import { login } from '/@/api/users'
-import store from '/@/store'
+import { login } from '@/api/users'
+import store from '@/store'
 import { TagsViewModule } from './tags-view'
 import dog from '../../static/img/dog.png'
 import {
@@ -10,8 +10,8 @@ import {
   getRoles,
   setRoles,
   removeRoles,
-} from '/@/utils/cookies'
-import { resetRouter } from '/@/router'
+} from '@/utils/cookies'
+import { resetRouter } from '@/router'
 
 export interface IUserState {
   token: String

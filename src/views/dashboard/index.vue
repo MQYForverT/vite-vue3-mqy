@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, computed } from 'vue'
-import { UserModule } from '/@/store/modules/user'
+import { UserModule } from '@/store/modules/user'
 // import AdminDashboard from './admin/index.vue'
 import EditorDashboard from './editor/index.vue'
 

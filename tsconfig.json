@@ -1,10 +1,12 @@
 {
 	"compilerOptions": {
 		"target": "esnext",
-		"module": "esnext",
+		"module": "commonjs",
 		"strict": true,
 		"jsx": "preserve",
 		"importHelpers": true,
+		"noUnusedLocals": true /* Report errors on unused locals. */ ,
+		"noImplicitReturns": true /* Report error when not all code paths in function return a value. */ ,
 		"moduleResolution": "node",
 		"experimentalDecorators": true,
 		"allowJs": true,
@@ -18,9 +20,7 @@
 			"jest"
 		],
 		"paths": {
-			"/@/*": [
-				"src/*"
-			]
+			"@*": ["src/*"]
 		},
 		"lib": [
 			"esnext",

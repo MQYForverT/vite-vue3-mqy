@@ -20,9 +20,9 @@
 
 <script lang="ts">
 import { defineComponent, computed, getCurrentInstance } from 'vue'
-import { AppModule } from '/@/store/modules/app'
-import { PermissionModule } from '/@/store/modules/permission'
-import { SettingsModule } from '/@/store/modules/settings'
+import { AppModule } from '@/store/modules/app'
+import { PermissionModule } from '@/store/modules/permission'
+import { SettingsModule } from '@/store/modules/settings'
 import SidebarItem from './SidebarItem.vue'
 import SidebarLogo from './SidebarLogo.vue'
 

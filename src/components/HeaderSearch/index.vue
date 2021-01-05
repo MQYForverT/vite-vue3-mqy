@@ -22,9 +22,9 @@ import path from 'path'
 import Fuse from 'fuse.js' // A lightweight fuzzy-search module
 import { defineComponent, onMounted, ref, reactive, computed, watch, getCurrentInstance, nextTick } from 'vue'
 import { useRouter, RouteRecordRaw } from 'vue-router'
-import { AppModule } from '/@/store/modules/app'
-import { PermissionModule } from '/@/store/modules/permission'
-import i18n from '/@/lang' // Internationalization
+import { AppModule } from '@/store/modules/app'
+import { PermissionModule } from '@/store/modules/permission'
+import i18n from '@/lang' // Internationalization
 
 export default defineComponent({
 	name: 'HeaderSearch',

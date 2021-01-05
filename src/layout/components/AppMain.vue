@@ -17,8 +17,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, getCurrentInstance } from 'vue'
-import { TagsViewModule } from '/@/store/modules/tags-view'
-import defaultSettings from '/@/settings'
+import { TagsViewModule } from '@/store/modules/tags-view'
+import defaultSettings from '@/settings'
 
 export default defineComponent({
 	name: 'AppMain',

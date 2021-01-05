@@ -49,11 +49,11 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, reactive, watch, getCurrentInstance, nextTick } from 'vue'
-import i18n from '/@/lang'
+import i18n from '@/lang'
 import { useRouter } from 'vue-router'
 import { Dictionary } from 'vue-router/types/router'
-import { UserModule } from '/@/store/modules/user'
-import LangSelect from '/@/components/LangSelect/index.vue'
+import { UserModule } from '@/store/modules/user'
+import LangSelect from '@/components/LangSelect/index.vue'
 
 export default defineComponent({
 	name: 'login',
