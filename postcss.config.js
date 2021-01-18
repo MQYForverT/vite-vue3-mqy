@@ -1,8 +1,5 @@
 module.exports = {
 	plugins: {
-		'postcss-import': {
-			path: 'src/styles'
-		},
 		'postcss-preset-env': {
 			/* use stage 3 features + css nesting rules */
 			stage: 3,
