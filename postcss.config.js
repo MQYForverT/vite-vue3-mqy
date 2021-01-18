@@ -1,8 +1,14 @@
 module.exports = {
 	plugins: {
-		'postcss-cssnext': {
-			browsers: 'last 2 versions', // 浏览器兼容的版本
-			stage: 3 // 你用的属性所在的阶段
+		'postcss-import': {
+			path: 'src/styles'
+		},
+		'postcss-preset-env': {
+			/* use stage 3 features + css nesting rules */
+			stage: 3,
+			features: {
+				'nesting-rules': true
+			}
 		},
 		'postcss-pxtorem': {
 			rootValue: 14, // html节点设的font-size大小，由于chrome最小12px，所以基值要设置大写

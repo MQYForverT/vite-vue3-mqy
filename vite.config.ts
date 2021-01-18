@@ -5,7 +5,7 @@ import { resolve } from 'path'
 // 用于正确编译.vue文件
 import vue from '@vitejs/plugin-vue'
 
-const svgPlugin = require('vite-plugin-svg')
+import svgLoader from 'vite-svg-loader'
 
 function pathResolve(dir: string) {
 	return resolve(__dirname, '.', dir)
@@ -74,13 +74,10 @@ const buildOption: BuildOptions = {
 }
 
 const viteConfig: UserConfig = {
-	alias: [
-		{
-			find: '@',
-			replacement: pathResolve('./src')
-		}
-	],
-	plugins: [vue(), svgPlugin()],
+	alias: {
+		'@': pathResolve('src')
+	},
+	plugins: [vue(), svgLoader()],
 	server: serverOption,
 	build: buildOption,
 	optimizeDeps: depOptimizationOption

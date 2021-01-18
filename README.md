@@ -22,7 +22,7 @@
 
 ### 四、css转换工具:PostCSS，是一个用 JavaScript 工具和插件转换 CSS 代码的工具，除了直接代替scss等预处理器之外还有其他功能
 ```
-1.npm install postcss-cssnext -D（可以定义变量、样式嵌套、自动加前缀，集成了autoprefixer、postcss-nesting等，详细请自行查看）
+1.npm install postcss-preset-env -D（可以定义变量、样式嵌套、自动加前缀，集成了autoprefixer、postcss-nesting等，详细请自行查看）
 2.npm install postcss-pxtorem -D（自动把px单位转换为rem）
 3.npm install cssnano -D（css压缩工具）
 4.npm install cssnano-preset-advanced（cssnano的高级设置，通常和cssnano配合使用）
@@ -38,9 +38,9 @@
 
 ### 六.图标库
 ```
-1.npm i -D vite-plugin-svg
+1.npm i -D vite-svg-loader（在vite-plugin-svg未适配vite2.0之前使用这个）
 直接引入svg图片，(建议从阿里图标库引入)，然后只需用VueComponent从文件路径导入即可,这里我封装了自己的组件
-详细：[https://github.com/visualfanatic/vite-plugin-svg](https://github.com/visualfanatic/vite-plugin-svg)
+详细：[https://github.com/jpkleemans/vite-svg-loader](https://github.com/jpkleemans/vite-svg-loader)
 ```
 
 ### 七.国际化
